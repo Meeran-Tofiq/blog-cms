@@ -8,6 +8,7 @@ import SignUpForm from "./components/SignUpForm.jsx";
 import BlogPage from "./components/BlogPage.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import BlogPostBox from "./components/BlogPostBox.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
 	{
 		path: "/blog-post/:blogPostId",
 		element: <BlogPage />,
+	},
+	{
+		path: "/blog-post/create",
+		element: <BlogPostBox />,
 	},
 ]);
 

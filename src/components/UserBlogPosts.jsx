@@ -2,11 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
 import useFetchWithAuth from "../api/fetch";
 import AuthContext from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function UserBlogPosts({}) {
 	const [blogPosts, setBlogPosts] = useState([]);
 	const { user } = useContext(AuthContext);
 	const fetch = useFetchWithAuth();
+	const navigate = useNavigate();
 
 	const fetchBlogs = async () => {
 		try {
@@ -25,6 +27,10 @@ export default function UserBlogPosts({}) {
 		if (user) fetchBlogs();
 	}, [user]);
 
+	const handleNewPostClick = () => {
+		navigate("/blog-post/create");
+	};
+
 	return user ? (
 		<ol className="blog-post-list">
 			{blogPosts.map((blogPost) => (
@@ -32,6 +38,19 @@ export default function UserBlogPosts({}) {
 					<BlogCard blogPost={blogPost}></BlogCard>
 				</li>
 			))}
+			<li
+				key={"new-post"}
+				role="button"
+				onClick={handleNewPostClick}
+				onKeyDown={(e) => {
+					if (e.key === "Enter") handleNewPostClick();
+				}}
+				tabIndex={0}
+				aria-label={`Create a new post.`}
+				style={{ cursor: "pointer" }}
+			>
+				+
+			</li>
 		</ol>
 	) : (
 		<p className="homepage-text">
