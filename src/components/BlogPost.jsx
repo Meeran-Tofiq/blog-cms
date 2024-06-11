@@ -65,7 +65,7 @@ export default function BlogPost({ blogPost, isBlogCard, onBlogPostUpdated }) {
 					<ContentDisplay htmlContent={content} />
 				</p>
 			</main>
-			{user._id === blogPostUser._id ? (
+			{user._id === blogPostUser._id && !isBlogCard ? (
 				<BlogPostControlls
 					title={title}
 					onTitleChanged={onTitleChanged}
