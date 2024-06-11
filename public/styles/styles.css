@@ -125,8 +125,7 @@ article header {
 	gap: 0.5rem;
 }
 
-article header,
-article main.comment-content {
+article header {
 	padding-bottom: 0.5rem;
 	border-bottom: 1px solid lightgrey;
 }
