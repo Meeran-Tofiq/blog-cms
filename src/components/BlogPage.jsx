@@ -1,16 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import BlogComment from "./BlogComment";
 import BlogPost from "./BlogPost";
 import { useLocation } from "react-router-dom";
 import useFetchWithAuth from "../api/fetch";
-import CommentBox from "./CommentBox";
-import AuthContext from "../context/AuthContext";
 
 export default function BlogPage() {
 	const location = useLocation();
 	const { blogPost } = location.state;
 	const [comments, setComments] = useState([]);
-	const { user } = useContext(AuthContext);
 	const fetch = useFetchWithAuth();
 
 	const fetchBlogComments = async () => {
@@ -40,12 +37,6 @@ export default function BlogPage() {
 
 			<div className="blog-comments-container">
 				<h2>Comments</h2>
-				{user ? (
-					<CommentBox
-						blogPostId={blogPost._id}
-						handleCommentUpdated={handleCommentUpdated}
-					/>
-				) : null}
 				<ol className="blog-comments">
 					{comments.map((comment) => (
 						<li key={comment._id}>
