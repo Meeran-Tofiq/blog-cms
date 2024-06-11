@@ -79,6 +79,14 @@ main .hero-image-container .overlay {
 	padding: 1rem;
 }
 
+main p.homepage-text {
+	background-color: white;
+	box-shadow: 0 0 15px white;
+	color: black;
+	text-align: center;
+	padding: 1rem;
+}
+
 .blog-post-list {
 	list-style: none;
 	padding: 1rem;
