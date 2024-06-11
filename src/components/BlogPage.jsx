@@ -27,10 +27,6 @@ export default function BlogPage() {
 		fetchBlogComments();
 	}, []);
 
-	const handleCommentUpdated = () => {
-		fetchBlogComments();
-	};
-
 	return (
 		<>
 			<BlogPost blogPost={blogPost} />
@@ -40,10 +36,7 @@ export default function BlogPage() {
 				<ol className="blog-comments">
 					{comments.map((comment) => (
 						<li key={comment._id}>
-							<BlogComment
-								comment={comment}
-								onCommentUpdated={handleCommentUpdated}
-							/>
+							<BlogComment comment={comment} />
 						</li>
 					))}
 				</ol>
