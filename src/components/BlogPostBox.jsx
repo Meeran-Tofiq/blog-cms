@@ -42,16 +42,9 @@ export default function BlogPostBox({}) {
 	return (
 		<article className="blog-post">
 			<h2>Title</h2>
-			<TinyMCEEditor
-				initialContent={title}
-				onContentChanged={onTitleChanged}
-				height={200}
-			/>
+			<TinyMCEEditor onContentChanged={onTitleChanged} height={200} />
 			<h2>Content</h2>
-			<TinyMCEEditor
-				initialContent={content}
-				onContentChanged={onContentChanged}
-			/>
+			<TinyMCEEditor onContentChanged={onContentChanged} />
 			<label>
 				<h3>Do you want this content to be public?</h3>
 				<input
