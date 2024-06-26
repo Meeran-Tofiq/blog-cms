@@ -31,7 +31,10 @@ export default function BlogPost({ blogPost, isBlogCard, onBlogPostUpdated }) {
 			`/blog-posts/${blogPost._id}`,
 			{
 				method: "PUT",
-				body: JSON.stringify({ title: newTitle, content: newContent }),
+				body: JSON.stringify({
+					title: newTitle ? newTitle : title,
+					content: newContent ? newContent : content,
+				}),
 			},
 			true
 		);
