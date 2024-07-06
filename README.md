@@ -17,7 +17,7 @@
 
 # Live preview
 
-This website can be viewed from the following [link]().
+This website can be viewed from the following [link](https://aquamarine-daffodil-e3e4f5.netlify.app/).
 
 # Credits
 
